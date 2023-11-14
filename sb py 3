@@ -1,0 +1,31 @@
+python
+Copy code
+class ContaBancaria:
+    def __init__(self, titular, saldo=0):
+        self.titular = titular
+        self.saldo = saldo
+
+    def depositar(self, valor):
+        self.saldo += valor
+        print(f"Depósito de {valor} realizado. Novo saldo: {self.saldo}")
+
+    def sacar(self, valor):
+        if self.saldo >= valor:
+            self.saldo -= valor
+            print(f"Saque de {valor} realizado. Novo saldo: {self.saldo}")
+        else:
+            print("Saldo insuficiente para saque.")
+
+# Exemplo de utilização das classes
+conta1 = ContaBancaria("João", 1000)
+conta1.depositar(500)
+conta1.sacar(2000)
+Neste exemplo, temos a classe ContaBancaria com dois métodos principais: depositar e sacar. A função __init__ é um método especial usado para inicializar os objetos da classe.
+
+depositar(valor): Adiciona o valor especificado ao saldo da conta.
+sacar(valor): Verifica se há saldo suficiente e, se houver, deduz o valor do saldo.
+Você pode expandir esse exemplo adicionando outras funcionalidades, como transferências entre contas, histórico de transações, juros, entre outros recursos, conforme as necessidades do sistema bancário que está modelando.
+
+Além disso, pode ser útil criar outras classes, como Cliente ou Transacao, para representar informações mais detalhadas sobre os clientes e transações, respeitando os princípios de encapsulamento, herança e polimorfismo.
+
+Por fim, este é um exemplo básico para ilustrar como você pode começar a modelar um sistema bancário usando POO em Python. À medida que o sistema evolui e se torna mais complexo, é importante adaptar e organizar as classes e métodos para atender aos requisitos específicos do sistema.
