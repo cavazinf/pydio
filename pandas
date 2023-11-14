@@ -1,0 +1,70 @@
+Exemplo de Análise de Dados com Pandas:
+Instalação do Pandas:
+
+Se você ainda não tiver o Pandas instalado, pode instalar usando o pip:
+
+bash
+Copy code
+pip install pandas
+Importando a biblioteca Pandas:
+
+python
+Copy code
+import pandas as pd
+Criando um DataFrame:
+
+O DataFrame é uma estrutura de dados bidimensional do Pandas.
+
+python
+Copy code
+# Dados fictícios
+dados = {
+    'Nome': ['Alice', 'Bob', 'Charlie', 'David', 'Emily'],
+    'Idade': [25, 30, 35, 40, 45],
+    'Cidade': ['São Paulo', 'Rio de Janeiro', 'Salvador', 'Fortaleza', 'Curitiba']
+}
+
+# Criando um DataFrame a partir dos dados
+df = pd.DataFrame(dados)
+print(df)
+Este código cria um DataFrame com dados fictícios contendo colunas de 'Nome', 'Idade' e 'Cidade'.
+
+Manipulação e Análise de Dados:
+
+Aqui estão algumas operações básicas que você pode realizar com o DataFrame:
+
+Visualizar as primeiras linhas:
+
+python
+Copy code
+print(df.head())
+Resumo estatístico:
+
+python
+Copy code
+print(df.describe())
+Selecionar colunas específicas:
+
+python
+Copy code
+print(df['Nome'])  # Exibe apenas a coluna 'Nome'
+Filtrar dados com base em condições:
+
+python
+Copy code
+print(df[df['Idade'] > 30])  # Exibe linhas onde a idade é maior que 30
+Ordenar os dados:
+
+python
+Copy code
+print(df.sort_values(by='Idade'))  # Ordena o DataFrame pela coluna 'Idade'
+Adicionar ou remover colunas:
+
+python
+Copy code
+df['Profissão'] = ['Engenheiro', 'Professor', 'Médico', 'Advogado', 'Designer']  # Adiciona uma coluna
+print(df)
+
+df.drop('Cidade', axis=1, inplace=True)  # Remove a coluna 'Cidade'
+print(df)
+Esses são apenas alguns exemplos de operações que podem ser realizadas com o Pandas. Ele oferece uma gama extensa de funcionalidades para análise, manipulação e visualização de dados, sendo uma excelente ferramenta para tarefas de análise de dados em Python.
