@@ -1,0 +1,75 @@
+Integrando Python com SQLite:
+SQLite é um banco de dados leve e incorporado que é muito comum e pode ser facilmente integrado com Python.
+
+Instalando o SQLite3 para Python:
+
+bash
+Copy code
+pip install pysqlite3
+Exemplo de utilização:
+
+python
+Copy code
+import sqlite3
+
+# Conectar ao banco de dados (criará um arquivo SQLite chamado 'exemplo.db' se não existir)
+conexao = sqlite3.connect('exemplo.db')
+
+# Criar um cursor
+cursor = conexao.cursor()
+
+# Criar tabela
+cursor.execute('''CREATE TABLE IF NOT EXISTS usuarios (
+                id INTEGER PRIMARY KEY,
+                nome TEXT NOT NULL,
+                email TEXT NOT NULL)''')
+
+# Inserir dados
+cursor.execute("INSERT INTO usuarios (nome, email) VALUES (?, ?)", ('João', 'joao@email.com'))
+conexao.commit()
+
+# Consultar dados
+cursor.execute("SELECT * FROM usuarios")
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+
+# Fechar a conexão
+conexao.close()
+Este exemplo cria um banco de dados SQLite, cria uma tabela de usuários, insere dados nessa tabela, consulta e exibe os dados inseridos.
+
+Integrando Python com MongoDB:
+O MongoDB é um banco de dados NoSQL muito popular, e a biblioteca oficial para Python é pymongo.
+
+Instalando o pymongo:
+
+bash
+Copy code
+pip install pymongo
+Exemplo de utilização:
+
+python
+Copy code
+from pymongo import MongoClient
+
+# Conectar ao MongoDB (se não houver URL, se conectará ao localhost)
+client = MongoClient('mongodb://localhost:27017/')
+
+# Criar ou acessar um banco de dados
+db = client['exemplo_db']
+
+# Criar ou acessar uma coleção
+colecao = db['usuarios']
+
+# Inserir dados
+usuario = {'nome': 'Maria', 'email': 'maria@email.com'}
+resultado = colecao.insert_one(usuario)
+print(f'ID do usuário inserido: {resultado.inserted_id}')
+
+# Consultar dados
+for usuario in colecao.find():
+    print(usuario)
+
+# Fechar conexão
+client.close()
+Esse exemplo cria uma conexão com o MongoDB, insere um usuário na coleção 'usuarios', consulta e exibe todos os usuários.
