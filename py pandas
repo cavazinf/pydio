@@ -1,0 +1,38 @@
+Instalação do Pandas (se ainda não estiver instalado):
+bash
+Copy code
+pip install pandas
+Exemplo de uso básico do Pandas:
+Suponha que você tenha um arquivo CSV chamado "dados.csv" com os seguintes dados:
+
+csv
+Copy code
+Nome,Idade,Cidade
+João,25,São Paulo
+Maria,30,Rio de Janeiro
+Pedro,22,Salvador
+Aqui está um exemplo de como você pode ler este arquivo CSV e realizar algumas operações básicas com o Pandas:
+
+python
+Copy code
+import pandas as pd
+
+# Carregar o arquivo CSV para um DataFrame
+df = pd.read_csv('dados.csv')
+
+# Visualizar as primeiras linhas do DataFrame
+print("Primeiras linhas do DataFrame:")
+print(df.head())
+
+# Descrever estatísticas básicas do DataFrame
+print("\nDescrição estatística do DataFrame:")
+print(df.describe())
+
+# Filtrar dados
+print("\nPessoas com idade maior que 25:")
+print(df[df['Idade'] > 25])
+
+# Contar o número de pessoas por cidade
+print("\nNúmero de pessoas por cidade:")
+print(df['Cidade'].value_counts())
+Este é apenas um exemplo simples das muitas funcionalidades que o Pandas oferece para análise de dados. Com Pandas, é possível realizar operações de limpeza, transformação, filtragem, agregação e muito mais em conjuntos de dados de diferentes formatos.
