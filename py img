@@ -1,0 +1,25 @@
+Instalando as bibliotecas necessárias (se ainda não estiverem instaladas):
+bash
+Copy code
+pip install opencv-python
+pip install pillow
+Exemplo de um pacote para redimensionar imagens:
+Crie um arquivo chamado image_processor.py:
+
+python
+Copy code
+import cv2
+from PIL import Image
+
+class ImageProcessor:
+    @staticmethod
+    def resize_image(image_path, output_path, width, height):
+        # Abre a imagem usando o OpenCV
+        img = cv2.imread(image_path)
+
+        # Redimensiona a imagem
+        resized_img = cv2.resize(img, (width, height))
+
+        # Salva a imagem redimensionada usando o Pillow
+        resized_image = Image.fromarray(resized_img)
+        resized_image.save(output_path)
