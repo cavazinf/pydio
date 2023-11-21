@@ -1,0 +1,44 @@
+Instalando o Tweepy:
+Certifique-se de ter a biblioteca tweepy instalada. Se não tiver, instale-a usando o pip:
+
+bash
+Copy code
+pip install tweepy
+Exemplo de busca por tweets:
+python
+Copy code
+import tweepy
+
+# Defina suas credenciais da API do Twitter
+consumer_key = 'SUA_CONSUMER_KEY'
+consumer_secret = 'SUA_CONSUMER_SECRET'
+access_token = 'SEU_ACCESS_TOKEN'
+access_token_secret = 'SEU_ACCESS_TOKEN_SECRET'
+
+# Autenticação com a API do Twitter
+auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
+api = tweepy.API(auth)
+
+# Realiza uma busca por tweets
+search_query = 'Python'  # Palavra-chave para busca
+number_of_tweets = 5  # Número de tweets a serem retornados
+
+try:
+    # Realiza a busca por tweets
+    search_results = api.search_tweets(q=search_query, count=number_of_tweets)
+
+    # Exibe os tweets encontrados
+    print(f'Últimos {number_of_tweets} tweets sobre "{search_query}":')
+    for tweet in search_results:
+        print(f'@{tweet.user.screen_name}: {tweet.text}')
+except tweepy.TweepError as e:
+    print(f'Erro ao buscar tweets: {str(e)}')
+Antes de executar o código, é necessário criar um aplicativo no Portal de Desenvolvedores do Twitter para obter as chaves e tokens necessários (consumer_key, consumer_secret, access_token e access_token_secret).
+
+Este é um exemplo simples de como usar a biblioteca tweepy para buscar tweets com base em uma palavra-chave específica. Você pode explorar mais funcionalidades da API do Twitter, como postagem de tweets, streaming em tempo real, obtenção de informações de usuários, entre outros recursos, utilizando a documentação oficial do tweepy: Documentação do Tweepy.
+
+
+
+
+
+
