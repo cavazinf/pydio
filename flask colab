@@ -1,0 +1,29 @@
+Passo 1: Instalar o Flask no ambiente do Colab.
+
+python
+Copy code
+!pip install flask-ngrok
+Passo 2: Criar uma aplicação Flask básica.
+
+python
+Copy code
+from flask import Flask
+from flask_ngrok import run_with_ngrok
+
+app = Flask(__name__)
+run_with_ngrok(app)  # Inicia o ngrok quando o app é executado
+
+@app.route("/")
+def home():
+    return "Olá, esta é a minha primeira API com Flask no Google Colab!"
+
+if __name__ == '__main__':
+    app.run()
+Passo 3: Executar a aplicação Flask.
+
+python
+Copy code
+app.run()
+O ngrok é usado para expor sua aplicação local para a internet, o que permite acessar sua API por meio de um URL gerado pelo ngrok.
+
+Porém, é importante notar que o ambiente de execução do Google Colab pode desconectar após um certo tempo de inatividade, o que pode interromper o funcionamento da sua API. Por isso, usar o Colab para hospedar uma API não é aconselhável para fins de produção. É mais adequado utilizar um serviço de hospedagem ou servidor próprio para isso.
